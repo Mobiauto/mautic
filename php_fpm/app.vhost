@@ -1,0 +1,48 @@
+server {
+    server_name mautic.test;
+
+    root /var/www/html;
+
+    listen 80;
+
+    listen 443 ssl;
+
+    ssl_certificate /var/www/html/_wildcard.mautic.test+1.pem;
+    ssl_certificate_key /var/www/html/_wildcard.mautic.test+1-key.pem;
+
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+    ssl_prefer_server_ciphers on;
+    ssl_ciphers 'EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH';
+
+    index index.html index.htm index.php;
+
+    # redirect index.php to root
+    rewrite ^/index.php/(.*) /$1  permanent;
+
+    rewrite ^/(vendor|translations|build)/.* /index.php break;
+
+    location / {
+        # First attempt to serve request as file, then
+        # as directory, then fall back to index.html
+        # one option: try_files $uri $uri/ /index.php$is_args$args;
+        try_files $uri /index.php$is_args$args;
+        # Uncomment to enable naxsi on this location
+        # include /etc/nginx/naxsi.rules
+    }
+
+    location ~ \.php$ {
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass localhost:9000;
+        fastcgi_read_timeout 600;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $document_root/$fastcgi_script_name;
+        include fastcgi_params;
+
+        #uncomment when running via https
+        #fastcgi_param HTTPS on;
+    }
+
+    error_log /var/log/nginx/error.log;
+    access_log /var/log/nginx/access.log;
+    server_tokens off;
+}

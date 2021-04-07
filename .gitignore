@@ -9,6 +9,8 @@
 /.env
 /composer.phar
 /coverage.xml
+/_wildcard.mautic.test+1-key.pem
+/_wildcard.mautic.test+1.pem
 
 /app/bootstrap*
 /app/console

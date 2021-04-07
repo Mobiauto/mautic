@@ -106,7 +106,7 @@ $firewalls = [
                 'mautic.security.logout_handler',
             ],
             'path'   => '/s/logout',
-            'target' => '/s/login',
+            'target' => '/s/',
         ],
         'remember_me' => [
             'secret'   => '%mautic.rememberme_key%',

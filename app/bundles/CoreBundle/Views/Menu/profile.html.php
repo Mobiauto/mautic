@@ -25,8 +25,12 @@ $inline = $view['menu']->render('profile');
             </a>
         </li>
         <li>
-            <a href="<?php echo $view['router']->path('mautic_user_logout'); ?>">
-                <i class="fa fa-sign-out fs-14"></i><span><?php echo $view['translator']->trans('mautic.user.auth.logout'); ?></span>
+<!--            <a href="--><?php //echo $view['router']->path('mautic_user_logout'); ?><!--">-->
+<!--                <i class="fa fa-sign-out fs-14"></i><span>--><?php //echo $view['translator']->trans('mautic.user.auth.logout'); ?><!--</span>-->
+<!--            </a>-->
+
+            <a href="https://test-auth.mobiauto.com.br/auth/realms/mobiauto/protocol/openid-connect/logout?redirect_uri=https%3A%2F%2Fmautic.test%2Fs%2Flogout">
+                <i class="fa fa-sign-out fs-14"></i><span>Sair</span>
             </a>
         </li>
 

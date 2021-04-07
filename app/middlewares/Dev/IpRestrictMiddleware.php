@@ -36,9 +36,10 @@ class IpRestrictMiddleware implements HttpKernelInterface, PrioritizedMiddleware
     public function __construct(HttpKernelInterface $app)
     {
         $this->app        = $app;
-        $this->allowedIps = ['127.0.0.1', 'fe80::1', '::1'];
+        $this->allowedIps = ['127.0.0.1', 'fe80::1', '::1', '172.19.0.1'];
 
         $parameters = $this->getConfig();
+
         if (array_key_exists('dev_hosts', $parameters) && is_array($parameters['dev_hosts'])) {
             $this->allowedIps = array_merge($this->allowedIps, $parameters['dev_hosts']);
         }

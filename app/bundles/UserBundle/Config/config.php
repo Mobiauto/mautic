@@ -131,6 +131,12 @@ return [
                     'mautic.core.model.auditlog',
                 ],
             ],
+//            'mautic.SAML_user_logout.subscriber' => [
+//                'class'     => \Mautic\UserBundle\EventListener\SAMLUserLogoutSubscriber::class,
+//                'arguments' => [
+//
+//                ],
+//            ],
             'mautic.user.search.subscriber' => [
                 'class'     => \Mautic\UserBundle\EventListener\SearchSubscriber::class,
                 'arguments' => [
