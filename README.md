@@ -26,7 +26,7 @@ Versão modificada do [https://github.com/mautic/mautic](https://github.com/maut
 1. Na raiz do projeto rode o comando "docker-compose up -d" 
 2. Execute agora o comando "docker-compose ps"
 3. Copie agora o nome do container onde roda o PHP
-4. Execute o comando "docker exec -it -u www-data <NOME DO CONTAINER> /bin/bash"
+4. Execute o comando "docker exec -it -u www-data NOME_DO_CONTAINER /bin/bash"
 5. Já dentro do container, execute o comando: "composer install"
 6. No navegador acesse [https://mautic.test](https://mautic.test)
 7. Pronto, seu mautic local está rodando, siga os procedimentos adicionais de configuração na tela
